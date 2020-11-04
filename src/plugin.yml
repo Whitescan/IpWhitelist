@@ -1,0 +1,11 @@
+name: IpWhitelist
+author: Whitescan
+version: 1.4
+api-version: 1.16
+main: me.whitescan.ipwhitelist.IpWhitelist
+
+commands:
+  ipwhitelist:
+    description: IPWhitelist main command. Use /ipwhitelist to get more help.
+    aliases: ['ipwl']
+    permission: 'ipwhitelist.setup'
