@@ -1,4 +1,4 @@
-package me.whitescan.ipwhitelist;
+package de.whitescan.ipwhitelist;
 
 import java.io.File;
 import java.net.InetAddress;
@@ -11,6 +11,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import lombok.Getter;
+
 /**
  * 
  * @author Whitescan
@@ -18,6 +20,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class IpWhitelist extends JavaPlugin {
 
+	@Getter
 	private List<String> bungeeIps = new ArrayList<>();
 
 	@Override
@@ -52,18 +55,9 @@ public class IpWhitelist extends JavaPlugin {
 		}
 	}
 
-	public List<String> getBungeeIps() {
-		return bungeeIps;
-	}
-
-	@Override
-	public void onDisable() {
-		bungeeIps.clear();
-	}
-
 	public String getTag() {
-		return ChatColor.ITALIC.toString() + ChatColor.GREEN + "[" + ChatColor.AQUA + getName() + ChatColor.GREEN
-				+ "] " + ChatColor.RESET;
+		return ChatColor.ITALIC.toString() + ChatColor.GREEN + "[" + ChatColor.AQUA + getName() + ChatColor.GREEN + "] "
+				+ ChatColor.RESET;
 	}
 
 	public boolean allow(String ip) {

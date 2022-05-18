@@ -1,4 +1,4 @@
-package me.whitescan.ipwhitelist;
+package de.whitescan.ipwhitelist;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class ReflectUtils {
 
-	// Hide construktor
+	// Hide constructor
 	private ReflectUtils() {
 	}
 

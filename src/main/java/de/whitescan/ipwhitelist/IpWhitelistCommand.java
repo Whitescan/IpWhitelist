@@ -1,25 +1,26 @@
-package me.whitescan.ipwhitelist;
+package de.whitescan.ipwhitelist;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabExecutor;
 import org.bukkit.util.ChatPaginator;
+
+import lombok.AllArgsConstructor;
 
 /**
  * 
  * @author Whitescan
  *
  */
-public class IpWhitelistCommand implements CommandExecutor {
+@AllArgsConstructor
+public class IpWhitelistCommand implements CommandExecutor, TabExecutor {
 
 	private IpWhitelist ipWhitelist;
-
-	public IpWhitelistCommand(IpWhitelist ipWhitelist) {
-		this.ipWhitelist = ipWhitelist;
-	}
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -135,5 +136,26 @@ public class IpWhitelistCommand implements CommandExecutor {
 		sender.sendMessage(ChatColor.AQUA + "/ipwhtelist debug - Toggles debug state");
 		sender.sendMessage(ChatColor.AQUA + "/ipwhitelist setup - Turn setup mode on");
 		return true;
+	}
+
+	@Override
+	public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
+
+		List<String> options = new ArrayList<>();
+
+		if (sender.hasPermission("ipwhitelist.setup")) {
+
+			if (args.length == 1) {
+				options.add("list");
+				options.add("addip");
+				options.add("remip");
+				options.add("reload");
+				options.add("debug");
+				options.add("setup");
+			}
+
+		}
+
+		return options;
 	}
 }

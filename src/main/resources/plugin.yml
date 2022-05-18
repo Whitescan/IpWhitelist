@@ -1,0 +1,12 @@
+name: ${project.name}
+version: ${project.version}
+description: ${project.description}
+author: Whitescan
+api-version: 1.18
+main: de.whitescan.ipwhitelist.IpWhitelist
+
+commands:
+  ipwhitelist:
+    description: IpWhitelist main command. Use /ipwhitelist to get more help.
+    aliases: [ipwl]
+    permission: ipwhitelist.setup
